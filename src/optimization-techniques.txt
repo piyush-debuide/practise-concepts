@@ -1,0 +1,13 @@
+
+
+<link rel="preload">
+<link rel="prefetch">
+
+import(/* webpackPrefetch: true*/ '...path')
+import(/* webpackPreload: true*/ '...path')
+
+prefetch -> prefetches the resource when browser sees it has available bandwidth to fetch resouce. This fetches the resources before it's actually used. So, when these resources are actually required, they are readily available and app doesn't take time to load.
+
+preload -> preloads the resource parallely with main bundle. But unlike prefetch where resource is loaded based on available bandwidth, preload fetches them regardless. Hence, it can increase the initial load time. So, it is only to be used when we require resource almost immediately.
+
+virtualization -> also called as windowing, it is a technique where we render a list only for the window. So, from a long list of data we only render list that fits to viewport or visible screen. This saves loading time since we are not rendering whole list at once (considering there's data going beyond viewport) and invisible to the user. We can use third party libraries for this, some packages used to display a grid already support this by default.
